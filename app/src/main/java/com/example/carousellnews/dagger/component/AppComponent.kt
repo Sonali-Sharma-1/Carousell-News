@@ -1,6 +1,6 @@
 package com.example.carousellnews.dagger.component
 
-import com.example.carousellnews.MainActivity
+import com.example.carousellnews.NewsActivity
 import com.example.carousellnews.dagger.module.AppModule
 import com.example.carousellnews.dagger.module.NetworkModule
 import com.example.carousellnews.dagger.module.viewModule.ViewModelModule
@@ -11,5 +11,5 @@ import javax.inject.Singleton
 @Component(modules = [AppModule::class, ViewModelModule::class, NetworkModule::class])
 
 interface AppComponent {
-    fun inject(activity: MainActivity)
+    fun inject(activity: NewsActivity)
 }
