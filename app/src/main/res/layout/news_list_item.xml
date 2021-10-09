@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="com.example.carousellnews.utils.DateFormat" />
+
         <variable
             name="newsData"
             type="com.example.carousellnews.network.model.NewsItem" />
@@ -43,6 +45,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="10dp"
                     android:ellipsize="end"
+                    android:maxLines="2"
                     android:text="@{newsData.title}"
                     android:textSize="15sp"
                     android:textStyle="bold"
@@ -57,6 +60,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="10dp"
                     android:ellipsize="end"
+                    android:maxLines="2"
                     android:text="@{newsData.description}"
                     android:textSize="12sp"
                     android:textStyle="normal"
@@ -70,7 +74,7 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="10dp"
-                    android:text="@{Integer.toString(newsData.time_created)}"
+                    android:text="@{DateFormat.getTimeAgo(newsData.time_created)}"
                     android:textColor="#C0C0C0"
                     android:textSize="12sp"
                     android:textStyle="normal"
