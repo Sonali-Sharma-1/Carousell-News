@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.carousellnews.databinding.NewsListItemBinding
 import com.example.carousellnews.network.model.NewsItem
+import com.example.carousellnews.utils.DateFormat
 import java.util.*
 import javax.inject.Inject
 
@@ -29,6 +30,7 @@ class NewsAdapter @Inject constructor() : RecyclerView.Adapter<NewsAdapter.NewsD
 
 
     fun addAllItems(newsList: List<NewsItem>) {
+        this.news.clear()
         this.news.addAll(newsList)
         notifyDataSetChanged()
     }
@@ -38,6 +40,8 @@ class NewsAdapter @Inject constructor() : RecyclerView.Adapter<NewsAdapter.NewsD
 
         fun bind(news: NewsItem) {
             binding.newsData = news
+            println("debug:" + DateFormat.getTimeAgo(news.time_created))
+
         }
     }
 }

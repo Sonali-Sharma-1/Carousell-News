@@ -4,7 +4,7 @@ import java.util.*
 
 class DateFormat {
     companion object {
-        private fun currentDate(): Date {
+         fun currentDate(): Date {
             val calendar = Calendar.getInstance()
             return calendar.time
         }

@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide
 import com.example.carousellnews.network.model.NewsItem
 import com.example.carousellnews.network.news.NewsSource
 import com.example.carousellnews.utils.ioReturnTask
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import androidx.lifecycle.viewModelScope as scope
 import java.util.*
 import javax.inject.Inject
@@ -27,11 +27,18 @@ class NewsViewModel @Inject constructor(private val newsSource: NewsSource) : Vi
     private fun loadNews() {
         scope.launch {
             val news = ioReturnTask {
+                println("debug: launching bg thread: ${Thread.currentThread().name}")
                 newsSource.getNewsList()
             }
+
             _newsListLiveData.postValue(news)
         }
     }
+
+    fun loadNewsOnBgThread() {
+        loadNews()
+    }
+
 
     companion object {
         @JvmStatic
